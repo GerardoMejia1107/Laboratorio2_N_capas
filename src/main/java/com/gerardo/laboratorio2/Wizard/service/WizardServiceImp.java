@@ -17,5 +17,10 @@ public class WizardServiceImp implements WizardService {
         repositoryJPA.save(wizard);
     }
 
+    @Override
+    public List<WizardModel> getAllWizards(){
+        return repositoryJPA.findAll();
+    }
+    
 
 }

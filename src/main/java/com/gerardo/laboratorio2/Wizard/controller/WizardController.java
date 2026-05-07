@@ -23,4 +23,10 @@ public class WizardController {
                 .body(wizard);
     }
 
+    @GetMapping("/wizards")
+    public ResponseEntity<List<WizardModel>> getAllWizards() {
+        List<WizardModel> response = service.getAllWizards();
+        return ResponseEntity.ok(response);
+    }
+
 }

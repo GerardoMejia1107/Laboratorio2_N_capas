@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface WizardService {
     void createWizard(WizardModel wizard);
-
+    List<WizardModel> getAllWizards();
 }
