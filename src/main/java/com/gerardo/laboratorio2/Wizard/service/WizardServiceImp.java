@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -18,14 +20,27 @@ public class WizardServiceImp implements WizardService {
     }
 
     @Override
-    public List<WizardModel> getAllWizards(){
+    public List<WizardModel> getAllWizards() {
         return repositoryJPA.findAll();
     }
 
     @Override
-    public List<WizardModel> getAllByIsDeatheater(Boolean isDeatheater){
+    public List<WizardModel> getAllByIsDeatheater(Boolean isDeatheater) {
         return repositoryJPA.findByIsDeatheater(isDeatheater);
     }
-    
+
+    @Override
+    public List<WizardModel> getByPatronus(String patronus) {
+        return repositoryJPA.findByPatronus(patronus);
+    }
+
+    @Override
+    public WizardModel deleteWizard(UUID id) {
+        WizardModel wizard = repositoryJPA.findById(id)
+                .orElseThrow(() -> new RuntimeException("Not found"));
+
+        repositoryJPA.deleteById(id);
+        return wizard;
+    }
 
 }

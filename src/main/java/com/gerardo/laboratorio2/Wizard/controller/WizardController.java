@@ -35,4 +35,18 @@ public class WizardController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/wizards/patronus")
+    public ResponseEntity<List<WizardModel>> getByPatronus(@RequestParam String patronus) {
+        List<WizardModel> response = service.getByPatronus(patronus);
+        return ResponseEntity.ok(response);
+    }
+
+    @DeleteMapping("/wizards/delete/{id}")
+    public ResponseEntity<WizardModel> deleteWizardById(@PathVariable UUID id) {
+        WizardModel response = service.deleteWizard(id);
+        return ResponseEntity.ok(response);
+    }
+
+    
+
 }
