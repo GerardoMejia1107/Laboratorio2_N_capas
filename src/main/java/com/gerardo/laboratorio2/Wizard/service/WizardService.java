@@ -11,4 +11,5 @@ public interface WizardService {
     List<WizardModel> getAllByIsDeatheater(Boolean isDeatheater);
     List<WizardModel> getByPatronus(String patronus);
     WizardModel deleteWizard(UUID id);
+    WizardModel updateWizard(UUID id, WizardModel request);
 }

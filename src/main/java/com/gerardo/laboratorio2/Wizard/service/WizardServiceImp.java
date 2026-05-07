@@ -43,4 +43,18 @@ public class WizardServiceImp implements WizardService {
         return wizard;
     }
 
+    @Override
+    public WizardModel updateWizard(UUID id, WizardModel request) {
+        if (request.getName() == null || request.getPatronus() == null || request.getHouse() == null || request.getIsDeatheater() == null) {
+            throw new RuntimeException("All fields are required");
+        }
+        WizardModel wizard = repositoryJPA.findById(id)
+                .orElseThrow(() -> new RuntimeException("Not found"));
+        wizard.setName(request.getName());
+        wizard.setHouse(request.getHouse());
+        wizard.setIsDeatheater(request.getIsDeatheater());
+        wizard.setPatronus(request.getPatronus());
+        return repositoryJPA.save(wizard);
+    }
+
 }

@@ -47,6 +47,11 @@ public class WizardController {
         return ResponseEntity.ok(response);
     }
 
-    
+    @PutMapping("/wizards/{id}")
+    public ResponseEntity<WizardModel> updateWizardById(@PathVariable UUID id, @RequestBody WizardModel wizard) {
+        WizardModel response = service.updateWizard(id, wizard);
+        return ResponseEntity.ok(response);
+    }
+
 
 }

@@ -8,6 +8,5 @@ import java.util.UUID;
 
 public interface WizardRepositoryJPA extends JpaRepository<WizardModel, UUID> {
     List<WizardModel> findByIsDeatheater(Boolean isDeatheater);
-
     List<WizardModel> findByPatronus(String patronus);
 }
