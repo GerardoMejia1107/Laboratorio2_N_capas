@@ -21,6 +21,11 @@ public class WizardServiceImp implements WizardService {
     public List<WizardModel> getAllWizards(){
         return repositoryJPA.findAll();
     }
+
+    @Override
+    public List<WizardModel> getAllByIsDeatheater(Boolean isDeatheater){
+        return repositoryJPA.findByIsDeatheater(isDeatheater);
+    }
     
 
 }

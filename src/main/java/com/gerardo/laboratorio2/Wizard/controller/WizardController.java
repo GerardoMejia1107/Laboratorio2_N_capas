@@ -29,4 +29,10 @@ public class WizardController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/wizards/deatheaters")
+    public ResponseEntity<List<WizardModel>> getByIsDeatheater() {
+        List<WizardModel> response = service.getAllByIsDeatheater(true);
+        return ResponseEntity.ok(response);
+    }
+
 }
